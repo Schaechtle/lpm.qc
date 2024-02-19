@@ -101,12 +101,7 @@ vl.render({
         "color":"lightgrey",
         "tooltip":{"content":"data"}},
        "transform":
-       [{"filter":
-         {"field":"Type_of_Orbit",
-          "oneOf":
-          ["Polar", "Deep Highly Eccentric", "Sun-Synchronous",
-           "Intermediate", "Retrograde", "Molniya"]}},
-        {"window":[{"op":"row_number", "as":"row_number_subplot"}],
+       [{"window":[{"op":"row_number", "as":"row_number_subplot"}],
          "groupby":["collection"]},
         {"filter":
          {"and":
@@ -114,15 +109,6 @@ vl.render({
            {"field":"row_number_subplot", "lte":450},
            {"field":"row_number_subplot",
             "lte":{"expr":400}}]}}],
-       "params":
-       [{"name":"brush-all",
-         "select":
-         {"type":"point",
-          "nearest":true,
-          "toggle":"true",
-          "on":"click[!event.shiftKey]",
-          "fields":["Type_of_Orbit", "collection"],
-          "clear":"dblclick[!event.shiftKey]"}}],
        "encoding":
        {"y":
         {"bin":false,
@@ -143,12 +129,7 @@ vl.render({
         "color":"lightgrey",
         "tooltip":{"content":"data"}},
        "transform":
-       [{"filter":
-         {"field":"Type_of_Orbit",
-          "oneOf":
-          ["Polar", "Deep Highly Eccentric", "Sun-Synchronous",
-           "Intermediate", "Retrograde", "Molniya"]}},
-        {"window":[{"op":"row_number", "as":"row_number_subplot"}],
+       [{"window":[{"op":"row_number", "as":"row_number_subplot"}],
          "groupby":["collection"]},
         {"filter":
          {"and":
@@ -156,15 +137,6 @@ vl.render({
            {"field":"row_number_subplot", "lte":450},
            {"field":"row_number_subplot",
             "lte":{"expr":400}}]}}],
-       "params":
-       [{"name":"brush-all",
-         "select":
-         {"type":"point",
-          "nearest":true,
-          "toggle":"true",
-          "on":"click[!event.shiftKey]",
-          "fields":["Type_of_Orbit", "collection"],
-          "clear":"dblclick[!event.shiftKey]"}}],
        "encoding":
        {"y":
         {"bin":false,
@@ -186,23 +158,7 @@ vl.render({
         "color":"lightgrey",
         "tooltip":{"content":"data"}},
        "transform":
-       [{"filter":
-         {"field":"Launch_Site",
-          "oneOf":
-          ["Baikonur Cosmodrome", "Jiuquan Satellite Launch Center",
-           "L-1011 Aircraft", "Vandenberg AFB",
-           "Taiyuan Launch Center", "Kodiak Launch Complex",
-           "Guiana Space Center", "Sea Launch",
-           "Sriharikota Launch Station", "Kennedy Space Center",
-           "Palmachim Launch Complex",
-           "Wallops Island Flight Facility",
-           "Tanegashima Space Center", "Dombarovsky Launch Facility",
-           "Yasny Cosmodrome", "ISS", "Svobodny Cosmodrome",
-           "Xichang Satellite Launch Center", "Kwajalein Island",
-           "Cape Canaveral", "Plesetsk Cosmodrome",
-           "Sea Launch (Odyssey)", "Satish Dhawan Space Center",
-           "Uchinoura Space Center"]}},
-        {"window":[{"op":"row_number", "as":"row_number_subplot"}],
+       [{"window":[{"op":"row_number", "as":"row_number_subplot"}],
          "groupby":["collection"]},
         {"filter":
          {"and":
@@ -239,23 +195,7 @@ vl.render({
         "color":"lightgrey",
         "tooltip":{"content":"data"}},
        "transform":
-       [{"filter":
-         {"field":"Launch_Site",
-          "oneOf":
-          ["Baikonur Cosmodrome", "Jiuquan Satellite Launch Center",
-           "L-1011 Aircraft", "Vandenberg AFB",
-           "Taiyuan Launch Center", "Kodiak Launch Complex",
-           "Guiana Space Center", "Sea Launch",
-           "Sriharikota Launch Station", "Kennedy Space Center",
-           "Palmachim Launch Complex",
-           "Wallops Island Flight Facility",
-           "Tanegashima Space Center", "Dombarovsky Launch Facility",
-           "Yasny Cosmodrome", "ISS", "Svobodny Cosmodrome",
-           "Xichang Satellite Launch Center", "Kwajalein Island",
-           "Cape Canaveral", "Plesetsk Cosmodrome",
-           "Sea Launch (Odyssey)", "Satish Dhawan Space Center",
-           "Uchinoura Space Center"]}},
-        {"window":[{"op":"row_number", "as":"row_number_subplot"}],
+       [{"window":[{"op":"row_number", "as":"row_number_subplot"}],
          "groupby":["collection"]},
         {"filter":
          {"and":
