@@ -1,3 +1,5 @@
+import polars as pl
+
 def normalize_count(column):
     """
     Count occurences of categories. This works on Polars'columns
