@@ -87,3 +87,15 @@ def p_larger_zero(ps, constant=10**(-10)):
         >>> p_larger_zero({"a": 1.0, "b": 0.0}, constant=0.00000001)
             {"a": 1.0, "b" 0.00000001}
     """
+
+def contingency_table(column_a, column_b):
+    """
+    Compute the contigency table for two columns in a Polars dataframe.
+
+    Parameters:
+    - column_a (Polars Series):  A column in a dataframe.
+    - column_b (Polars Series):  The same column from another dataframe.
+
+    Returns:
+    - contingency table (np.arrray): a 2-d Numpy array couting the contigencies.
+    """
