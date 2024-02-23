@@ -18,6 +18,7 @@
           src = self;
           propagatedBuildInputs = with pkgs; [
             (python311.withPackages(ps: with ps; [
+              scipy
               polars
               ]))
           ];
