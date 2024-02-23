@@ -7,28 +7,26 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
-        syn_data_fidelity = pkgs.python311Packages.buildPythonPackage {
-          pname = "syn_data_fidelity";
-          version = "0.0.1";
-          src = self;
-          propagatedBuildInputs = with pkgs; [
-            (python311.withPackages(ps: with ps; [
-              scipy
-              polars
-              ]))
-          ];
-        };
-      in
-      {
-        devShell = pkgs.mkShell {
-          buildInputs = [
-            syn_data_fidelity
-          ];
-        };
-      });
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+      syn_data_fidelity = pkgs.python311Packages.buildPythonPackage {
+        pname = "syn_data_fidelity";
+        version = "0.0.1";
+        src = self;
+
+        nativeBuildInputs = with pkgs.python3Packages; [
+          setuptools
+        ];
+
+        propagatedBuildInputs = with pkgs.python3Packages; [
+          numpy
+          polars
+          scipy
+        ];
+      };
+    in {
+      devShell = pkgs.mkShell {
+        buildInputs = [ syn_data_fidelity ];
+      };
+    });
 }
