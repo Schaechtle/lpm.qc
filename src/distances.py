@@ -7,10 +7,10 @@ import sys
 from scipy.stats import entropy as scipy_entropy
 from scipy.spatial.distance import jensenshannon as js
 
-from .counting import harmonize_categorical_probabilities
-from .counting import normalize_count
-from .counting import normalize_count_bivariate
-from .counting import _probabilities_safe_as_denominator
+from syn_data_fidelity.counting import harmonize_categorical_probabilities
+from syn_data_fidelity.counting import normalize_count
+from syn_data_fidelity.counting import normalize_count_bivariate
+from syn_data_fidelity.counting import _probabilities_safe_as_denominator
 
 
 def tvd(P, Q):
