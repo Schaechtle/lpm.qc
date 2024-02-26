@@ -1,6 +1,5 @@
 import argparse
 import polars as pl
-import sys
 
 from syn_data_fidelity.distances import bivariate_distances_in_data
 from syn_data_fidelity.distances import univariate_distances_in_data
@@ -16,9 +15,9 @@ def main():
     parser.add_argument(
         "-o",
         "--output",
-        type=argparse.FileType("w+"),
-        help="Result",
-        default=sys.stdout,
+        type=str,
+        help="Path to output CSV - prints to stdout if not set.",
+        default=None,
     )
     parser.add_argument(
         "--main-metric", type=str, help="Main metric to order result by", default="tvd"
@@ -43,7 +42,10 @@ def main():
         result = univariate_distances_in_data(
             df_a, df_b, distance_metric=args.main_metric
         )
-    result.write_csv(args.output)
+    if args.output is None:  # Print to stdout.
+        print(result.write_csv(args.output))
+    else:
+        result.write_csv(args.output)
 
 
 if __name__ == "__main__":
