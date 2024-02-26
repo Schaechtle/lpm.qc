@@ -9,24 +9,29 @@
   outputs = { self, nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      syn_data_fidelity = pkgs.python311Packages.buildPythonPackage {
+      syn_data_fidelity = pkgs.python310Packages.buildPythonPackage {
         pname = "syn_data_fidelity";
         version = "0.0.1";
         src = self;
-
-        nativeBuildInputs = with pkgs.python3Packages; [
+        nativeBuildInputs = with pkgs.python310Packages; [
           setuptools
         ];
-
-        propagatedBuildInputs = with pkgs.python3Packages; [
-          numpy
-          polars
-          scipy
-        ];
+        dependencies = [
+          pkgs.python310Packages.numpy
+          pkgs.python310Packages.scipy
+          pkgs.python310Packages.polars
+        ]
+        doCheck= false;
       };
     in {
       devShell = pkgs.mkShell {
-        buildInputs = [ syn_data_fidelity ];
+        buildInputs = [
+          syn_data_fidelity
+          pkgs.python310Packages.pytest
+          pkgs.python310Packages.numpy
+          pkgs.python310Packages.scipy
+          pkgs.python310Packages.polars
+        ];
       };
     });
 }
