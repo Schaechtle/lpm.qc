@@ -2,7 +2,7 @@
   description = "A flake for the syn data fidelity library";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11"; # Adjust this to the desired Nixpkgs channel
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05"; # Adjust this to the desired Nixpkgs channel
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -16,21 +16,23 @@
         nativeBuildInputs = with pkgs.python310Packages; [
           setuptools
         ];
-        dependencies = [
-          pkgs.python310Packages.numpy
-          pkgs.python310Packages.scipy
-          pkgs.python310Packages.polars
-        ]
-        doCheck= false;
+        nativeCheckInputs = with pkgs.python310Packages; [
+          pytest
+          numpy
+          scipy
+          polars
+        ];
+        checkPhase = "pytest tests/ -vvv";
       };
     in {
       devShell = pkgs.mkShell {
         buildInputs = [
           syn_data_fidelity
-          pkgs.python310Packages.pytest
-          pkgs.python310Packages.numpy
-          pkgs.python310Packages.scipy
-          pkgs.python310Packages.polars
+          (with pkgs.python310Packages; [
+            numpy
+            scipy
+            polars
+          ])
         ];
       };
     });
