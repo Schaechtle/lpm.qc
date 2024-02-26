@@ -2,7 +2,6 @@
 
 import argparse
 import polars as pl
-import sys
 
 from syn_data_fidelity.two_sample_testing import univariate_two_sample_testing_in_data
 
@@ -16,9 +15,9 @@ def main():
     parser.add_argument(
         "-o",
         "--output",
-        type=argparse.FileType("w+"),
-        help="Result",
-        default=sys.stdout,
+        type=str,
+        help="Path to output CSV - prints to stdout if not set.",
+        default=None,
     )
 
     args = parser.parse_args()
@@ -27,7 +26,10 @@ def main():
     df_b = pl.read_csv(args.data_2)
 
     result = univariate_two_sample_testing_in_data(df_a, df_b)
-    result.write_csv(args.output)
+    if args.output is None:  # Print to stdout.
+        print(result.write_csv(args.output))
+    else:
+        result.write_csv(args.output)
 
 
 if __name__ == "__main__":
