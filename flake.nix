@@ -20,7 +20,7 @@
           pkgs.python310Packages.numpy
           pkgs.python310Packages.scipy
           pkgs.python310Packages.polars
-        ]
+        ];
         doCheck= false;
       };
     in {
