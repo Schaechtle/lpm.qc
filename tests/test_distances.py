@@ -182,11 +182,11 @@ def test_bivariate_distances_in_data_spot():
     df_b = pl.DataFrame(
         {
             "column-1": ["a"] * 9 + ["b"] * 1,
-            "column-2": ["y"] * 10,
+            "column-2": ["x"] * 10,
             "column-3": range(10),
         }
     )
-    df_result = univariate_distances_in_data(df_a, df_b, distance_metric="tvd")
-    assert df_result["tvd"][0] == 0.0
-    assert df_result["tvd"][1] == 0.4
-    assert df_result["tvd"][2] == 1.0
+    df_result = bivariate_distances_in_data(df_a, df_b, distance_metric="tvd")
+    assert df_result["tvd"][0] == pytest.approx(0.0)
+    assert df_result["tvd"][1] == pytest.approx(0.4)
+    assert df_result["tvd"][2] == pytest.approx(0.4)
