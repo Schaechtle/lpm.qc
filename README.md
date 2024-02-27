@@ -1,5 +1,8 @@
 # lpm.qc
 
+## Disclaimer
+This is pre-alpha software. We are currently testing it in real-world scenarios. In its present state, we discourage users from trying it.
+
 ## Overview over fidelity component
 
 ![schematic](images/fidelity-schematic.png)
