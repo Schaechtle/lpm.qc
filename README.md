@@ -9,21 +9,7 @@ This is pre-alpha software. We are currently testing it in real-world scenarios.
 
 ## Usage
 
-### Fidelity CLI
-
 :warning: this currently only works with categorical CSV files.
-
-```shell
-assess-distance --data-1 foo.csv --data-2 bar.csv
-```
-
-```shell
-assess-distance --data-1 foo.csv --data-2 bar.csv --bivariate
-```
-
-```shell
-assess-statistics --data-1 foo.csv --data-2 bar.csv 
-```
 
 ### Using fidelity as a Python library
 
@@ -47,6 +33,20 @@ df_bivariate_distance = bivariate_distances_in_data(df_foo, df_bar, distance_met
 
 # Compute univariate two-sample hypothesis tests (currently only Chi^2).
 df_univariate_two_sample_test = univariate_two_sample_testing_in_data(df_foo, df_bar)
+```
+
+### Fidelity CLI
+
+```shell
+assess-distance --data-1 foo.csv --data-2 bar.csv
+```
+
+```shell
+assess-distance --data-1 foo.csv --data-2 bar.csv --bivariate
+```
+
+```shell
+assess-statistics --data-1 foo.csv --data-2 bar.csv 
 ```
 
 ## Test
