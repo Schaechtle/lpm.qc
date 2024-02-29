@@ -43,5 +43,23 @@
       x86_64-linux.default = mkSynDataFidelity pkgs.x86_64-linux;
       aarch64-darwin.default = mkSynDataFidelity pkgs.aarch64-darwin;
     };
+    apps = {
+      x86_64-linux.default = {
+        type = "app";
+        program = "${mkSynDataFidelity pkgs.x86_64-linux}/bin/assess-distance";
+      };
+      aarch64-darwin.default = {
+        type = "app";
+        program = "${mkSynDataFidelity pkgs.aarch64-darwin}/bin/assess-distance";
+      };
+      x86_64-linux.assess-statistics = {
+        type = "app";
+        program = "${mkSynDataFidelity pkgs.x86_64-linux}/bin/assess-statistics";
+      };
+      aarch64-darwin.assess-statistics = {
+        type = "app";
+        program = "${mkSynDataFidelity pkgs.aarch64-darwin}/bin/assess-statistics";
+      };
+    };
   };
 }
