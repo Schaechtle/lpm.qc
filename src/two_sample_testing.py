@@ -5,7 +5,7 @@ import sys
 
 from scipy.stats import chi2_contingency
 
-from syn_data_fidelity.counting import contingency_table
+from lpm_fidelity.counting import contingency_table
 
 
 def chi_squared(column_a, column_b):

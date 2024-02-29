@@ -3,11 +3,11 @@
 import argparse
 import polars as pl
 
-from syn_data_fidelity.two_sample_testing import univariate_two_sample_testing_in_data
+from lpm_fidelity.two_sample_testing import univariate_two_sample_testing_in_data
 
 
 def main():
-    description = "Run a univariate statistical test"
+    description = "Run a univariate statistical test for each column in two dataframes."
     parser = argparse.ArgumentParser(description=description)
 
     parser.add_argument("-a", "--data-1", type=str, help="Path to a CSV.")

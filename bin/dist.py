@@ -1,13 +1,13 @@
 import argparse
 import polars as pl
 
-from syn_data_fidelity.distances import bivariate_distances_in_data
-from syn_data_fidelity.distances import univariate_distances_in_data
+from lpm_fidelity.distances import bivariate_distances_in_data
+from lpm_fidelity.distances import univariate_distances_in_data
 
 
 def main():
     """Main function for computing distances."""
-    description = "For each column"
+    description = "Compute column-wise probabilstic distance measure between two csv files."
     parser = argparse.ArgumentParser(description=description)
 
     parser.add_argument("-a", "--data-1", type=str, help="Path to a CSV.")

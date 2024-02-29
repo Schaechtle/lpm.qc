@@ -11,8 +11,8 @@
       x86_64-linux = linux-nixpkgs.legacyPackages.x86_64-linux;
       aarch64-darwin = darwin-nixpkgs.legacyPackages.aarch64-darwin;
     };
-    mkSynDataFidelity = pkgs: (pkgs.python310Packages.buildPythonPackage {
-          pname = "syn_data_fidelity";
+    mkLPMfidelity = pkgs: (pkgs.python310Packages.buildPythonPackage {
+          pname = "lpm_fidelity";
           version = "0.0.1";
           src = self;
           nativeBuildInputs = with pkgs.python310Packages; [
@@ -32,7 +32,7 @@
           ]);
         });
     mkShell = pkgs: pkgs.mkShell {
-      buildInputs = [(mkSynDataFidelity pkgs)];
+      buildInputs = [(mkLPMfidelity pkgs)];
     };
   in {
     devShells = {
@@ -40,25 +40,25 @@
       aarch64-darwin.default = mkShell pkgs.aarch64-darwin;
     };
     packages = {
-      x86_64-linux.default = mkSynDataFidelity pkgs.x86_64-linux;
-      aarch64-darwin.default = mkSynDataFidelity pkgs.aarch64-darwin;
+      x86_64-linux.default = mkLPMfidelity pkgs.x86_64-linux;
+      aarch64-darwin.default = mkLPMfidelity pkgs.aarch64-darwin;
     };
     apps = {
       x86_64-linux.default = {
         type = "app";
-        program = "${mkSynDataFidelity pkgs.x86_64-linux}/bin/assess-distance";
+        program = "${mkLPMfidelity pkgs.x86_64-linux}/bin/assess-distance";
       };
       aarch64-darwin.default = {
         type = "app";
-        program = "${mkSynDataFidelity pkgs.aarch64-darwin}/bin/assess-distance";
+        program = "${mkLPMfidelity pkgs.aarch64-darwin}/bin/assess-distance";
       };
       x86_64-linux.assess-statistics = {
         type = "app";
-        program = "${mkSynDataFidelity pkgs.x86_64-linux}/bin/assess-statistics";
+        program = "${mkLPMfidelity pkgs.x86_64-linux}/bin/assess-statistics";
       };
       aarch64-darwin.assess-statistics = {
         type = "app";
-        program = "${mkSynDataFidelity pkgs.aarch64-darwin}/bin/assess-statistics";
+        program = "${mkLPMfidelity pkgs.aarch64-darwin}/bin/assess-statistics";
       };
     };
   };

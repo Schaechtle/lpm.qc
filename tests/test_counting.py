@@ -2,12 +2,12 @@ import numpy as np
 import polars as pl
 import pytest
 
-from syn_data_fidelity.counting import _is_not_none_or_nan
-from syn_data_fidelity.counting import normalize_count
-from syn_data_fidelity.counting import normalize_count_bivariate
-from syn_data_fidelity.counting import harmonize_categorical_probabilities
-from syn_data_fidelity.counting import _probabilities_safe_as_denominator
-from syn_data_fidelity.counting import contingency_table
+from lpm_fidelity.counting import _is_not_none_or_nan
+from lpm_fidelity.counting import normalize_count
+from lpm_fidelity.counting import normalize_count_bivariate
+from lpm_fidelity.counting import harmonize_categorical_probabilities
+from lpm_fidelity.counting import _probabilities_safe_as_denominator
+from lpm_fidelity.counting import contingency_table
 
 import sys
 
